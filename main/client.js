@@ -1,4 +1,4 @@
-// Inside a new file named 'client.js' that you'll link to your 'index.html'
+
 window.onload = function() {
     var newTab = window.open('about:blank', '_blank');
     
