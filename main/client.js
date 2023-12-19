@@ -14,3 +14,4 @@ window.onload = function() {
       .catch(error => console.error('Error fetching the HTML:', error));
     }
   };
+

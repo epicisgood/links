@@ -8,6 +8,28 @@ body{
     width: 10px;
 }
 
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* the track of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* the scroll handle */
+}
+
+/* hover over the scroll handle */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* for Firefox 64 */
+* {
+    scrollbar-width: thin; /* 'auto' or 'thin' */
+    scrollbar-color: #888 #f1f1f1; /* thumb and track */
+}
+
+
+
+
 #title-line{
     height: 3px; 
     background-color:hsl(0, 0%, 50%); 
@@ -24,9 +46,15 @@ body{
 
 }
 
-:any-link{
+a {
     color: hsl(0, 100%, 50%);
     text-decoration: none;
+    transition: color 0.3s ease;
+    
+}
+
+a:hover{
+    color: hsl(0, 100%, 40%);
 }
 
 #Title{
@@ -52,6 +80,7 @@ body{
   }
 
   
+
 #list li {
     text-align: center;
     margin-bottom: 20px;
@@ -63,6 +92,10 @@ body{
     border: 1px solid hsl(10, 0%, 15%); /* 2px is your border thickness, #color is your placeholder for the actual color value */
   }
 
+
+  #list li:hover {
+    background-color: hsl(0, 0%, 10%);
+}
 
 #Date{
     color: hsl(0, 0%, 90%);
