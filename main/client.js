@@ -1,27 +1,32 @@
 
 window.onload = function() {
-    var newTab = window.open('about:blank', '_blank');
-    
-    if (!newTab) {
-      alert('Please accept pop-ups and refresh the page in the top right corner!');
-    } else {
-      window.location.href = 'https://spotsylvania.instructure.com/';
-      fetch('index.html')
-      .then(response => response.text())
-      .then(data => {
-        newTab.document.write(data);
-      })
-      .catch(error => console.error('Error fetching the HTML:', error));
-    }
-  };
+  var newTab = window.open('about:blank', '_blank');
 
+  if (!newTab) {
+    alert('Please accept pop-ups and refresh the page in the top right corner!');
+  } else {
+    window.location.href = "https://spotsylvania.instructure.com/"
+    fetch('index.html')
+    .then(response => response.text())
+    .then(data => {
+      newTab.document.write(data);
+    })
+    .catch(error => console.error('Error fetching the HTML:', error));
+  }
+};
 
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const anchor = button.querySelector("a");
-    const link = anchor.href;
-    window.location.href = link;
+    if (anchor) {
+      const link = anchor.href;
+      window.location.href = link; // Or window.open(link, '_blank') to open in a new tab
+    }
   });
 });
+
+
+
+
