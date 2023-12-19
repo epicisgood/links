@@ -15,3 +15,13 @@ window.onload = function() {
     }
   };
 
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const anchor = button.querySelector("a");
+    const link = anchor.href;
+    window.location.href = link;
+  });
+});

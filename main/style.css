@@ -1,49 +1,13 @@
 body{
     background-color: hsl(0, 0%, 0%);   
+    margin-top: 0;
 }
 
-
-::-webkit-scrollbar{
-    background-color: hsl(0, 0%, 20%);
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1; /* the track of the scrollbar */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888; /* the scroll handle */
-}
-
-/* hover over the scroll handle */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* for Firefox 64 */
-* {
-    scrollbar-width: thin; /* 'auto' or 'thin' */
-    scrollbar-color: #888 #f1f1f1; /* thumb and track */
-}
-
-
-
-
-#title-line{
-    height: 3px; 
-    background-color:hsl(0, 0%, 50%); 
-    border: none;
-
-  }
-
-
-#bottom-line{
-    height: 2px;
-    background-color: hsl(0, 0%, 50%);
-    margin-top: 15ch;
-    margin-bottom: 10ch;
-
+header{
+    width: 100%;
+    background-color: hsl(0, 0%, 5%);
+    border: 1px dotted hsl(0, 0%, 40%);
+    border-radius: 10px;
 }
 
 a {
@@ -56,6 +20,46 @@ a {
 a:hover{
     color: hsl(0, 100%, 40%);
 }
+
+
+
+
+::-webkit-scrollbar{
+    background-color: hsl(0, 0%, 20%);
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 0%); /* the track of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%,20%); /* the scroll handle */
+}
+
+/* hover over the scroll handle */
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 33%);
+}
+
+/* for Firefox 64 */
+* {
+    scrollbar-width: thin; /* 'auto' or 'thin' */
+    scrollbar-color: hsl(0, 0%, 53%) hsl(0, 0%, 95%); /* thumb and track */
+}
+
+
+
+
+#bottom-line{
+    height: 1px;
+    background-color: hsl(0, 0%, 50%);
+    margin-top: 10ch;
+    margin-bottom: 8ch;
+
+}
+
+
 
 #Title{
     color: hsl(0, 0%, 90%);
@@ -73,7 +77,7 @@ a:hover{
 }
 
 
-#list {
+#buttons {
     display: flex; /* This will let you use the flex properties below */
     justify-content: center; /* This centers the items along the main axis */
     flex-wrap: wrap; /* This allows items to wrap onto the next line */
@@ -81,20 +85,22 @@ a:hover{
 
   
 
-#list li {
+#buttons button {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    margin-left: 5px;
     background-color: hsl(0, 0%, 6%);
     font-size: 20px;
     padding: 25px;
     display: inline-block; /* Changed this to inline-block to respect padding and margin */
     border-radius: 10px;
-    border: 1px solid hsl(10, 0%, 15%); /* 2px is your border thickness, #color is your placeholder for the actual color value */
+    border: 1px solid hsl(10, 0%, 15%);
   }
 
 
-  #list li:hover {
+#buttons button:hover {
     background-color: hsl(0, 0%, 10%);
+    cursor: pointer;
 }
 
 #Date{
