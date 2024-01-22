@@ -18,15 +18,15 @@ window.onload = function() {
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (event) => {
     const anchor = button.querySelector("a");
     if (anchor) {
+      event.preventDefault(); // This line prevents the default anchor action to navigate away on the same page.
       const link = anchor.href;
-      window.open(link, '_blank')
+      window.open(link, '_blank');
     }
   });
 });
-
 
 
 
