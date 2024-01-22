@@ -22,7 +22,7 @@ buttons.forEach(button => {
     const anchor = button.querySelector("a");
     if (anchor) {
       const link = anchor.href;
-      window.location.href = link; // Or window.open(link, '_blank') to open in a new tab
+      window.open(link, '_blank')
     }
   });
 });
