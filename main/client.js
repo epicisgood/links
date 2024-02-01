@@ -1,18 +1,15 @@
+let inFrame
 
-window.onload = function() {
-  var newTab = window.open('about:blank', '_blank');
+try {
+  inFrame = window !== top
+} catch (e) {
+  inFrame = true
+}
 
-  if (!newTab) {
-    alert('Please accept pop-ups and refresh the page in the top right corner!');
-  } else {
-    window.location.href = "https://spotsylvania.instructure.com/"
-    fetch('index.html')
-    .then(response => response.text())
-    .then(data => {
-      newTab.document.write(data);
-    })
-    .catch(error => console.error('Error fetching the HTML:', error));
-    
+if (!inFrame && !navigator.userAgent.includes('Firefox')) {
+  const popup = open('about:blank', '_blank')
+  if (!popup || popup.closed) alert('Please allow popups and redirects.')
+  else {
     const doc = popup.document
     const iframe = doc.createElement('iframe')
     const style = iframe.style
@@ -31,21 +28,17 @@ window.onload = function() {
     style.border = style.outline = 'none'
     style.width = style.height = '100%'
 
+    doc.head.appendChild(link)
+    doc.body.appendChild(iframe)
+    location.replace(localStorage.getItem('panicLink') || 'https://www.nasa.gov/')
   }
-};
+}
 
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach(button => {
-  button.addEventListener("click", (event) => {
-    const anchor = button.querySelector("a");
-    if (anchor) {
-      event.preventDefault(); // This line prevents the default anchor action to navigate away on the same page.
-      const link = anchor.href;
-      window.open(link, '_blank');
-    }
-  });
-});
-
-
-
+window.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden')
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      `<iframe src="/a/hvtrs8%2F-gmoelg.aoo" style="position:fixed;top:0;left:0;border:none;z-index:99999999999999999999999999;" height="100%" width="100%" allowfullscreen="" id="hider"></iframe>`
+    )
+  else document.querySelector('#hider')?.remove()
+})
