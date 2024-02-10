@@ -1,9 +1,6 @@
 # Use an official Node.js runtime as the base image
 FROM node:14
 
-# Create an app directory in the container and set it as the working directory
-WORKDIR /usr/src/app
-
 # Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
@@ -17,4 +14,4 @@ COPY . .
 EXPOSE 3000
 
 # Specify the command to run your app when the container starts
-CMD [ "node", "index.js" ]
+CMD [ "node", "main/index.js" ]
