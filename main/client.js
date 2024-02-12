@@ -16,7 +16,7 @@ if (!inFrame && !navigator.userAgent.includes('Firefox')) {
     const link = doc.createElement('link')
 
     const name = localStorage.getItem('name') || 'Dashboard'
-    const icon = localStorage.getItem('icon') || 'https://media.discordapp.net/attachments/1145821489929658402/1202425573243097128/canvas-logo-1024x1020.png?ex=65cd6914&is=65baf414&hm=de484fe27664b4690f9731e39964a725af983c76bfbf3376825a159231b7411f&=&format=webp&quality=lossless&width=673&height=671'
+    const icon = localStorage.getItem('icon') || 'https://canvas.wfu.edu/app/uploads/sites/12/2019/09/canvas-logo-1024x1020.png'
 
     doc.title = name
     link.rel = 'icon'
