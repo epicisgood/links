@@ -10,8 +10,8 @@ app.get('/', (req, res) => {
 });
 
 // New route for '/dev'
-app.get('/dev', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'dev', 'dev.html')); // Access '../dev/dev.html' instead of 'dev/dev.html'
+app.get('/school', (req, res) => {
+  res.sendFile(path.join(__dirname, '..',  'main', 'school.html'));
 });
 
 const PORT = process.env.PORT || 3000;
