@@ -1,0 +1,63 @@
+body {
+    background: hsl(54, 100%, 50%);
+    background-size: 225vh;
+}
+
+#edpuzzle-title {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -450%);
+    font-size: 4rem;
+}
+
+#watermark{
+    position: absolute;
+    left: 45%;
+    bottom: 80%;
+    font-size: 2rem;
+    color: hsl(0, 0%, 0%, 0.9)
+}
+
+#fetchDataButton {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 24px 48px;
+    border: 0, solid, rgb(0, 0, 0);
+    border-radius: 10px;
+    background: #1de9b6;
+    line-height: 1.15;
+    font-size: 16px;
+}
+
+#fetchDataButton:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #000000;
+}
+
+
+.question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.answer {
+    margin-bottom: 5px;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    width: 175px;
+}
+
+.answer:hover {
+    background-color: #e0e0e0;
+}

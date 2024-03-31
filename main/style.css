@@ -2,11 +2,22 @@ body {
     background-color: hsl(0, 0%, 0%);
     margin-top: 0;
     font-family: 'Mukta Vaani', sans-serif;
+    background: url(https://github.com/InterstellarNetwork/Interstellar/blob/main/static/assets/media/background/full2.png?raw=true);
+    background-position: center;
+    background-repeat: no-repeat;
+
+
 }
 
+:root {
+    --page: url('/./assets/media/background/full2.png');
+    --background: rgba(255, 255, 255, 0.02);
+    --background-filter: blur(10px) brightness(80%);
+
+}
 header {
     width: 100%;
-    background-color: hsl(0, 0%, 5%);
+    background-color: hsla(0, 0%, 15%, 0.2);
     border: 1px dotted hsl(0, 0%, 40%);
     border-radius: 10px;
     font-size: large;
@@ -65,7 +76,7 @@ a.down:hover {
 
 
 #bottom-links {
-    color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 90%, 0.8);
     text-align: center;
     font-size: 30px;
 }
@@ -139,30 +150,41 @@ button.down:hover {
 
 
 #Date {
-    color: hsl(0, 0%, 90%);
+    color: hsla(0, 0%, 90%, 0.7);
     font-size: medium;
     position: absolute;
-    left: 9px;
+    left: 25px;
     top: 85px;
     text-align: right;
-    border: 1px solid hsl(0, 0%, 40%);
-    border-radius: 10px;
-    padding: 5px;
-
+    
 }
 
+#warning-image{
+    width: 10vh;
+}
 
 #popups {
-    color: hsl(115, 100%, 60%)
-}
-
-#chrome_redirect {
-    color: hsl(100, 100%, 40%);
+    color: hsl(115, 100%, 60%, 0.85);
+    font-size: 22px;
 }
 
 #chrome {
-    color: hsl(0, 100%, 55%);
+    color: hsla(0, 100%, 55%, 0.85);
+    font-size: 22px;
 }
+
+.popup-container {
+    background-color: hsl(0, 0%, 10%,0.5);
+    width: 56vh;
+    border-radius: 10px;
+    padding: 10px;
+    vertical-align: center;
+    text-align: center;
+    border: 2px solid hsla(0, 0%, 100%, 0.541);
+    position: relative;
+}
+
+
 
 
 
@@ -192,4 +214,38 @@ button.down:hover {
     /* 'auto' or 'thin' */
     scrollbar-color: hsl(0, 0%, 53%) hsl(0, 0%, 95%);
     /* thumb and track */
+}
+
+
+#navbar {
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    flex-wrap: wrap;
+    font-family: 'Mukta Vaani', sans-serif;
+    
+}
+
+.edpuzzle{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    background-color: hsla(28, 100%, 12%, 0.486);
+    font-size: 16px;
+    padding: 16px;
+    display: inline-block;
+    border: 4px solid hsl(59, 100%, 20%);
+}
+
+.edpuzzle:hover{
+    background-color: hsla(28, 100%, 32%, 0.486);
+    cursor: pointer;
+    
+}
+.edpuzzle-text{
+    color: hsl(64, 100%, 50%);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
