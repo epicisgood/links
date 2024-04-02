@@ -27,16 +27,18 @@ app.post('/edpuzzle', async (req, res) => {
       throw new Error('Token and classId are required.');
     }
     const { token, classId } = req.body;
-    const encodedtoken = encodeURIComponent(token)
+    const cookie = req.headers.cookie; 
+    const CurrentEpoochTime = Math.floor(Date.now() / 1000) % 10000000000; 
     const response = await axios.post('https://v2.schoolcheats.net/edpuzzle/assignments', {
       token,
       classId
     }, {
       headers: {
-        'cookie': `__eoi=ID=33320d6f248e4ae9:T=1711240478:RT=1712088307:S=AA-AfjYf1uKwpbMgET6R482nyN0s; token=${token};`
-
+        'cookie': cookie
+        
       }
     });
+    console.log(CurrentEpoochTime)
     res.json(response.data);
   } catch (error) {
     console.error('Error fetching data:', error.message);
