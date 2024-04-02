@@ -17,6 +17,7 @@ body {
 }
 header {
     width: 100%;
+    min-width: 75%;
     background-color: hsla(0, 0%, 15%, 0.2);
     border: 1px dotted hsl(0, 0%, 40%);
     border-radius: 10px;
@@ -175,7 +176,9 @@ button.down:hover {
 
 .popup-container {
     background-color: hsl(0, 0%, 10%,0.5);
-    width: 56vh;
+    width: 56vh; /* Default width for PC */
+    max-width: 40vh; /* Max width for both PC and mobile */
+    min-width: 20vh; /* Min width for both PC and mobile */
     border-radius: 10px;
     padding: 10px;
     vertical-align: center;
@@ -184,7 +187,11 @@ button.down:hover {
     position: relative;
 }
 
-
+@media screen and (max-width: 768px) {
+    .popup-container {
+        width: auto; /* Reset width for mobile devices */
+    }
+}
 
 
 
