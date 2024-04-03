@@ -27,18 +27,18 @@ app.post('/edpuzzle', async (req, res) => {
       throw new Error('Token and classId are required.');
     }
     const { token, classId } = req.body;
-    const cookie = req.headers.cookie; 
-    const CurrentEpoochTime = Math.floor(Date.now() / 1000) % 10000000000; 
+    const CurrentEpochTime = Math.floor(Date.now() / 1000) % 10000000000;
+    const SchoolToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMTAwNTQ3NjUwNzYxMjczMzY2IiwiaWF0IjoxNzEyMDg4MzYxLCJleHAiOjE3MTIxNzQ3NjF9.NscycjJJZcf7w6SMBYb8s_srtLWm1Oiru2WsBZHXz4Y'
     const response = await axios.post('https://v2.schoolcheats.net/edpuzzle/assignments', {
       token,
       classId
     }, {
       headers: {
-        'cookie': cookie
-        
+        'cookie': `__eoi=ID=33320d6f248e4ae9:T=1711240478:RT=${CurrentEpochTime}:S=AA-AfjYf1uKwpbMgET6R482nyN0s; token=${SchoolToken};`
+
       }
     });
-    console.log(CurrentEpoochTime)
+    console.log(CurrentEpochTime)
     res.json(response.data);
   } catch (error) {
     console.error('Error fetching data:', error.message);

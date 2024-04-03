@@ -4,7 +4,6 @@ async function edpuzzle() {
     // Prompt the user to input the token and classId
     const token = prompt("Please enter your token:");
     const classId = prompt("Please enter your classId:");
-    const CurrentEpochTime = Math.floor((Date.now() - 60000) / 1000) % 10000000000; // Get the epoch time of one minute ago
     if (!token || !classId) return;
 
     try {
@@ -13,8 +12,7 @@ async function edpuzzle() {
             headers: {
                 "Content-Type": "application/json",
                 "Cache-Control": "no-cache",
-                'set-cookie': `__eoi=ID=33320d6f248e4ae9:T=1711240478:RT=${CurrentEpochTime}:S=AA-AfjYf1uKwpbMgET6R482nyN0s; token=${token}`
-                                                           
+
             },
             body: JSON.stringify({
                 token,
