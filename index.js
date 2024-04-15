@@ -6,33 +6,35 @@ const { wrapper } = require('axios-cookiejar-support');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-require('dotenv').config(); 
-discord_authorization = process.env.discord_authorization
-
+require('dotenv').config();
+const discord_authorization = process.env.discord_authorization;
 
 // Set up cookie jar globally
 const cookieJar = new tough.CookieJar();
 const client = wrapper(axios.create({ jar: cookieJar }));
 
-const mainPath = path.join(__dirname, '..', 'main');
+const mainPath = path.join(__dirname, 'main'); 
+
 app.use(express.static(mainPath));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(mainPath, 'index.html'));
-});
 
-app.get('/answers', (req, res) => {
-  res.sendFile(path.join(mainPath, 'edpuzzle.html'));
-});
+const routes = [
+  { path: '/', file: 'index.html' },
+  { path: '/answers', file: 'edpuzzle.html' },
+]
 
-app.get('/forms', (req, res) => {
-  res.sendFile(path.join(mainPath, 'forms.html'));
-});
+routes.forEach((route) => {
+  app.get(route.path, (req, res) => {
+    res.sendFile(path.join(mainPath, route.file))
+  })
+})
+
+
 
 app.post('/edpuzzle', async (req, res) => {
   try {
