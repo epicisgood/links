@@ -118,3 +118,12 @@ async function tokengrab() {
         console.error(error);
     }
 }
+
+
+
+document.getElementById('refresh-button').addEventListener('click', refresh)
+
+function refresh() {
+    location.reload();
+
+}
