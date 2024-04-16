@@ -1,7 +1,6 @@
 document.getElementById('fetchDataButton').addEventListener('click', edpuzzle);
 
 async function edpuzzle() {
-    // Prompt the user to input the token and classId
     const token = prompt("Please enter your token:");
     const classId = prompt("Please enter your classId:");
     if (!token || !classId) return;
@@ -83,3 +82,39 @@ function displayQuestions(title, questions) {
     });
 };
 
+
+document.getElementById('GrabToken').addEventListener('click', tokengrab)
+
+async function tokengrab() {
+    const username = prompt('Enter your edpuzzle username:');
+    const password = prompt('Enter your password!');
+
+    try {
+        const response = await fetch("/login", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Cache-Control": "no-cache",
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const TokenGenerated = document.getElementById('tokeninfo');
+        TokenGenerated.innerHTML = 'Copy your edpuzzle token below!';
+
+        const ResponseElement = document.getElementsByClassName('TokenResponse')[0];
+        ResponseElement.classList.add('TokenResponse');
+        ResponseElement.style.backgroundColor = 'red';
+        ResponseElement.textContent = data.token;
+
+    } catch (error) {
+        console.error(error);
+    }
+}
