@@ -104,7 +104,13 @@ async function tokengrab() {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        const data = await response.json();
+        const token = await response.json();
+        const authorizationHeader = token['authorization'];
+
+        const tokenParts = authorizationHeader.split(' ');
+        const tokenWithoutBearer = tokenParts[1];
+
+
 
         const TokenGenerated = document.getElementById('tokeninfo');
         TokenGenerated.innerHTML = 'Copy your edpuzzle token below!';
@@ -112,7 +118,7 @@ async function tokengrab() {
         const ResponseElement = document.getElementsByClassName('TokenResponse')[0];
         ResponseElement.classList.add('TokenResponse');
         ResponseElement.style.backgroundColor = 'red';
-        ResponseElement.textContent = data.token;
+        ResponseElement.textContent = tokenWithoutBearer;
 
     } catch (error) {
         console.error(error);
