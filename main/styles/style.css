@@ -12,7 +12,7 @@ body {
 header {
     width: 100%;
     background-color: hsla(0, 0%, 15%, 0.2);
-    border: 1px dotted hsl(0, 0%, 40%);
+    border-bottom: 1px solid hsl(0, 0%, 40%);
     border-radius: 10px;
     position: relative;
 }
@@ -32,20 +32,23 @@ header {
     font-size: 1vw;
     position: absolute;
     left: 10px;
-    top: 70%;
+    top: 55%;
     text-align: right;
     
 }
 
 .popup-container {
     background-color: hsl(0, 0%, 10%,0.5);
-    width: 30vw; 
+    width: calc(30vw + 1vh);
+    min-width: 150px;
     border-radius: 10px;
-    padding: 10px;
+    padding: 2vh 0.3vw;
     vertical-align: center;
     text-align: center;
     border: 2px solid hsla(0, 0%, 100%, 0.541);
+    container-type: inline-size;
 }
+
 
 
 #popups {
@@ -55,7 +58,8 @@ header {
 
 #chrome {
     color: hsla(0, 100%, 55%, 0.85);
-    font-size: calc(1vw + 0.6vh);
+    font-size: calc(4cqi + 15%);
+
 }
 
 
@@ -121,6 +125,8 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     font-family: 'Mukta Vaani', sans-serif;
+    width: auto;
+    container-type: inline-size;
 }
 
 /* all buttons in contianer */
@@ -130,9 +136,9 @@ header {
     margin-bottom: 15px;
     margin-left: 5px;
     background-color: hsl(0, 0%, 6%);
-    font-size: calc(1vh + 1vw);
-    padding: 3vh;
-    border-radius: 10px;
+    font-size: calc(1cqh + 1cqw);
+    padding: calc(2cqb + 1cqw);
+    border-radius:17px;
 
 } 
 
