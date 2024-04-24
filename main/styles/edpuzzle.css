@@ -1,5 +1,6 @@
 body {
     background: rgb(255, 230, 0);
+    margin-top: 0;
 }
 
 .center {
@@ -9,50 +10,58 @@ body {
     flex-direction: column;
 }
 
-.disable{
+.disable {
     color: hsl(0, 0%, 0%);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
+.title-container {
+    position: relative;
+    margin-top: 0;
+    background-color: red;
+    width: 50vw;
+    height: fit-content;
+    max-height: 13vh;
+    text-align: center;
+    container-type: inline-size;
+}
+
 #edpuzzle-title {
     position: relative;
-    text-align: center;
-    bottom: 5vh;
-    font-size: 7.5vh;
+    bottom: 0.6em;
+    font-size: calc(3cqi + 3cqb);
 }
 
 #watermark {
-    position: absolute;
-    bottom: 83%;
-    font-size: 3vh;
-    color: hsl(0, 0%, 0%, 0.9)
+    position: relative;
+    bottom: 2em;
+    font-size: calc(1.8cqi + 1.8cqb);
+    color: hsl(0, 0%, 0%, 0.9);
+
+}
+
+.nav-buttons {
+    cursor: pointer;
+    top: 0vh;
+    text-align: center;
+    padding: 1em;
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: clamp(10px, calc(0.5vh + 1vw), 15px);
 }
 
 #refresh-button {
     background-color: #ffffff;
-    cursor: pointer;
-    padding: 1.3vh .5vh;
-    border-radius: 10px;
-    font-size: 2vh;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     position: absolute;
-    left: 3vh;
-    top: 0vh;
+    left: 1em;
 }
 
-#home-button{
-    cursor: pointer;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+#home-button {
     position: absolute;
-    right: 3vh;
-    top: 0vh;
-    text-align: center;
+    right: 1em;
     background-color: hsl(0, 100%, 39%);
-    font-size: 16px;
-    padding: 1.3vh .5vh;
     border: 4px solid hsl(0, 0%, 0%);
-    border-radius: 10px;
 
 }
 
@@ -119,14 +128,6 @@ body {
     top: 38%;
 }
 
-@media screen and (max-width: 516px) {
-    #fetchDataButton,
-    #GrabToken {
-        width: 40vw;
-        height: 12vh;
-        padding: 0px;
-    }
-}
 
 #line {
     position: absolute;
