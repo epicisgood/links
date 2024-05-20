@@ -1,9 +1,7 @@
 document.getElementById('fetchDataButton').addEventListener('click', edpuzzle);
 
 async function edpuzzle() {
-    const token = prompt("Please enter your token:");
-    const classId = prompt("Please enter your classId:");
-    if (!token || !classId) return;
+    const assignment = prompt("Paste in your edpuzzle url");
 
     const loadingElement = document.getElementsByClassName('AnswersAppears')[0];
     loadingElement.classList.remove('response-fail', 'response-success', 'response-progress');
@@ -11,7 +9,7 @@ async function edpuzzle() {
     loadingElement.textContent = 'Fetching assignments...';
 
     try {
-        const response = await fetch("/edpuzzle", {
+        const response = await fetch("/public-edpuzzle", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -19,8 +17,7 @@ async function edpuzzle() {
 
             },
             body: JSON.stringify({
-                token,
-                classId
+                assignment
             })
         });
         if (!response.ok) {
@@ -28,12 +25,10 @@ async function edpuzzle() {
 
         }
         const data = await response.json();
-        data.assignments.forEach(assignment => {
-            displayQuestions(assignment.media.title, assignment.media.questions);
-        });
+        
     } catch (error) {
         console.log(error)
-        loadingElement.textContent = 'Invalid edpuzzle token or classid';
+        loadingElement.textContent = 'Invalid assignmentid. This is a private edpuzzle sadly.';
         loadingElement.classList.remove('response-progress')
         loadingElement.classList.add('response-fail')
         var errorOccurred = true;
@@ -81,55 +76,3 @@ function displayQuestions(title, questions) {
         container.appendChild(answersElement);
     });
 };
-
-
-document.getElementById('GrabToken').addEventListener('click', tokengrab)
-
-async function tokengrab() {
-    const username = prompt('Enter your edpuzzle username:');
-    const password = prompt('Enter your password!');
-
-    try {
-        const response = await fetch("/login", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Cache-Control": "no-cache",
-            },
-            body: JSON.stringify({
-                username,
-                password
-            })
-        });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const token = await response.json();
-        const authorizationHeader = token['authorization'];
-
-        const tokenParts = authorizationHeader.split(' ');
-        const tokenWithoutBearer = tokenParts[1];
-
-
-
-        const TokenGenerated = document.getElementById('tokeninfo');
-        TokenGenerated.innerHTML = 'Copy your edpuzzle token below!';
-
-        const ResponseElement = document.getElementsByClassName('TokenResponse')[0];
-        ResponseElement.classList.add('TokenResponse');
-        ResponseElement.style.backgroundColor = 'red';
-        ResponseElement.textContent = tokenWithoutBearer;
-
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-
-
-document.getElementById('refresh-button').addEventListener('click', refresh)
-
-function refresh() {
-    location.reload();
-
-}

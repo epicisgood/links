@@ -68,7 +68,7 @@ body {
 #tokeninfo {
     position: absolute;
     top: 20%;
-    font-size: 3.2vh;
+    font-size: calc(1vh + 1.5vw);
     font-weight: lighter;
 }
 

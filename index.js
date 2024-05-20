@@ -34,9 +34,22 @@ routes.forEach((route) => {
   })
 })
 
+//public edpuzzles
+
+app.post('/public-edpuzzle', async (req, res) => {
+  await client.post()
+  const Media_ID = 
+  await client.post(`https://edpuzzle.com/api/v3/media/${Media_ID}`)
+})
 
 
-app.post('/edpuzzle', async (req, res) => {
+
+
+
+
+
+// private edpuzzles 
+app.post('/private-edpuzzle', async (req, res) => {
   try {
     if (!req.body || !req.body.token || !req.body.classId) {
       throw new Error('Token and classId are required.');
@@ -114,6 +127,13 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while fetching data.' });
   }
 });
+
+
+
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
