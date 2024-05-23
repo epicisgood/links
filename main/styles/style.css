@@ -83,19 +83,19 @@ header {
 
 
 
- .edpuzzle{
+ .schedule{
     background-color: hsla(28, 100%, 12%, 0.486);
     border: 4px solid hsl(59, 100%, 20%);
 }
 
 
 
-.edpuzzle:hover{
+.schedule:hover{
     background-color: hsla(28, 100%, 32%, 0.486);
     cursor: pointer;
     
 }
-.edpuzzle-text{
+.schedule-text{
     color: hsl(64, 100%, 50%);
     text-decoration: none;
     transition: color 0.3s ease;
