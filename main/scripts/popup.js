@@ -16,7 +16,7 @@ if (!inFrame && !navigator.userAgent.includes('Firefox')) {
     const link = doc.createElement('link')
 
     const name = localStorage.getItem('name') || 'Dashboard'
-    const icon = localStorage.getItem('icon') || 'https://canvas.wfu.edu/app/uploads/sites/12/2019/09/canvas-logo-1024x1020.png'
+    const icon = localStorage.getItem('icon') || 'media/canvas.png'
 
     doc.title = name
     link.rel = 'icon'
@@ -30,6 +30,9 @@ if (!inFrame && !navigator.userAgent.includes('Firefox')) {
 
     doc.head.appendChild(link)
     doc.body.appendChild(iframe)
+
+    const pLink = localStorage.getItem(encodeURI("pLink")) || "https://www.google.com/"
+    location.replace(pLink) 
   }
 }
 
