@@ -5,11 +5,7 @@ import { fileURLToPath } from "url";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
-
-// Middleware to parse JSON and URL-encoded data
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 
 
@@ -19,7 +15,6 @@ const __dirname = path.dirname(__filename);
 
 const mainPath = path.join(__dirname, "main");
 
-// Serve static files from the "main" directory
 app.use(express.static(mainPath));
 
 const routes = [
@@ -36,6 +31,7 @@ routes.forEach((route) => {
 
 
 
+
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port http://localhost:${PORT}`);
 });

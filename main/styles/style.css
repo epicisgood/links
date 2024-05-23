@@ -2,12 +2,11 @@ body {
     background-color: hsl(0, 0%, 0%);
     margin: 0;
     font-family: 'Mukta Vaani', sans-serif;
-    background: url(https://github.com/InterstellarNetwork/Interstellar/blob/main/static/assets/media/background/full2.png?raw=true);
+    background-image: url('/./media/background.png');
     background-position: center;
     background-repeat: repeat;
 
 }
-
 
 header {
     width: 100%;
