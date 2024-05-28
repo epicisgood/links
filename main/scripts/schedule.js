@@ -2,11 +2,11 @@ const schedules = {
     regular: {
         title: "Regular",
         classes: [
-            { name: "A1/B5", endTime: new Date().setHours(8, 55, 0, 0), interval: "7:35 - 8:55" },
-            { name: "A2/B6", endTime: new Date().setHours(10, 20, 0, 0), interval: "9:00 - 10:20" },
-            { name: "Charger Time", endTime: new Date().setHours(10, 55, 0, 0), interval: "10:20 - 10:55" },
-            { name: "A3/B7", endTime: new Date().setHours(12, 55, 0, 0), interval: "11:00 - 12:55" },
-            { name: "A4/B8", endTime: new Date().setHours(14, 20, 0, 0), interval: "13:00 - 14:20" },
+            { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(8, 55, 0, 0), interval: "7:35 - 8:55" },
+            { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(10, 20, 0, 0), interval: "9:00 - 10:20" },
+            { id: '3rd-class', name: "Charger Time", endTime: new Date().setHours(10, 55, 0, 0), interval: "10:20 - 10:55" },
+            { id: '4th-class', name: "A3/B7", endTime: new Date().setHours(12, 55, 0, 0), interval: "11:00 - 12:55" },
+            { id: '5th-class', name: "A4/B8", endTime: new Date().setHours(14, 20, 0, 0), interval: "13:00 - 14:20" },
         ],
         lunches: [
             { name: "1st", endTime: new Date().setHours(11, 25, 0, 0), interval: "11:00 - 11:25" },
@@ -18,20 +18,20 @@ const schedules = {
     earlyDismissal: {
         title: "Early Dismisal",
         classes: [
-            { name: "A1/B5", endTime: new Date().setHours(8, 25, 0, 0), interval: "7:35 - 8:25" },
-            { name: "A2/B6", endTime: new Date().setHours(9, 20, 0, 0), interval: "8:30 - 9:20" },
-            { name: "A3/B7", endTime: new Date().setHours(10, 15, 0, 0), interval: "9:25 - 10:15" },
-            { name: "A4/B8", endTime: new Date().setHours(11, 15, 0, 0), interval: "10:20 - 11:15" },
+            { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(8, 25, 0, 0), interval: "7:35 - 8:25" },
+            { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(9, 20, 0, 0), interval: "8:30 - 9:20" },
+            { id: '3rd-class', name: "A3/B7", endTime: new Date().setHours(10, 15, 0, 0), interval: "9:25 - 10:15" },
+            { id: '4th-class', name: "A4/B8", endTime: new Date().setHours(11, 15, 0, 0), interval: "10:20 - 11:15" },
         ],
         lunches: []
     },
     twoHourDelay: {
         title: "2 Hour Delay",
         classes: [
-            { name: "A1/B5", endTime: new Date().setHours(10, 30, 0, 0), interval: "9:35 - 10:30" },
-            { name: "A2/B6", endTime: new Date().setHours(11, 30, 0, 0), interval: "10:35 - 11:30" },
-            { name: "A3/B7", endTime: new Date().setHours(13, 25, 0, 0), interval: "11:35 - 13:25" },
-            { name: "A4/B8", endTime: new Date().setHours(14, 20, 0, 0), interval: "13:30 - 14:20" },
+            { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(10, 30, 0, 0), interval: "9:35 - 10:30" },
+            { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(11, 30, 0, 0), interval: "10:35 - 11:30" },
+            { id: '3rd-class', name: "A3/B7", endTime: new Date().setHours(13, 25, 0, 0), interval: "11:35 - 13:25" },
+            { id: '4th-class', name: "A4/B8", endTime: new Date().setHours(14, 20, 0, 0), interval: "13:30 - 14:20" },
         ],
         lunches: [
             { name: "1st", endTime: new Date().setHours(11, 55, 0, 0), interval: "11:30 - 11:55" },
@@ -43,11 +43,11 @@ const schedules = {
     prepRalley: {
         title: "Prep Ralley",
         classes: [
-            { name: "A1/B5", endTime: new Date().setHours(8, 40, 0, 0), interval: "7:35 - 8:40" },
-            { name: "A2/B6", endTime: new Date().setHours(9, 50, 0, 0), interval: "8:45 - 9:50" },
-            { name: "A3/B7", endTime: new Date().setHours(11, 1, 0, 0), interval: "9:55 - 11:01" },
-            { name: "A4/B8", endTime: new Date().setHours(13, 8, 0, 0), interval: "11:06 - 13:08" },
-            { name: "Pep Rally", endTime: new Date().setHours(14, 20, 0, 0), interval: "13:10 - 14:20" },
+            { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(8, 40, 0, 0), interval: "7:35 - 8:40" },
+            { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(9, 50, 0, 0), interval: "8:45 - 9:50" },
+            { id: '3rd-class', name: "A3/B7", endTime: new Date().setHours(11, 1, 0, 0), interval: "9:55 - 11:01" },
+            { id: '4th-class', name: "A4/B8", endTime: new Date().setHours(13, 8, 0, 0), interval: "11:06 - 13:08" },
+            { id: '5th-class', name: "Pep Rally", endTime: new Date().setHours(14, 20, 0, 0), interval: "13:10 - 14:20" },
         ],
         lunches: [
             { name: "1st", endTime: new Date().setHours(11, 34, 0, 0), interval: "11:06 - 11:34" },
@@ -62,8 +62,8 @@ let currentschedule = schedules.regular;
 
 const scheduleSwitch = document.querySelector('.schedule-switch');
 
-const title = document.querySelector('.schedule-titles');
-const lunch_title = document.querySelector('.lunch-title');
+const title = document.getElementById('schedule-title');
+const lunch_title = document.getElementById('lunch-title');
 
 const first_class = document.getElementById('1st-class');
 const second_class = document.getElementById('2nd-class');
@@ -97,8 +97,8 @@ function updateScheduleDisplay() {
         second_lunch.innerHTML = '2nd: <b> N/A </b>';
         third_lunch.innerHTML = '3rd: <b> N/A </b>';
         fourth_lunch.innerHTML = '4th: <b> N/A </b>';
-        document.getElementById('lunch-clock').innerText = "No lunch for today hehe";
-        document.getElementById('current-lunch').innerText = '';
+        document.getElementById('lunch-clock').innerText = "No lunch for today";
+        document.getElementById('current-lunch').innerText = 'No lunches to display';
     } else {
         first_lunch.innerHTML = currentschedule.lunches[0].name + ": " + '<b>' + currentschedule.lunches[0].interval + '</b>';
         second_lunch.innerHTML = currentschedule.lunches[1].name + ": " + '<b>' + currentschedule.lunches[1].interval + '</b>';
@@ -116,6 +116,9 @@ scheduleSwitch.addEventListener('change', () => {
 
 
 function UpdateCountdowns() {
+    document.querySelectorAll('.highlight_current_class').forEach(Highlightclass => {
+        Highlightclass.classList.remove('highlight_current_class');
+    });
     // Class Schedule
     const currentTime = new Date().getTime();
 
@@ -126,13 +129,15 @@ function UpdateCountdowns() {
         if (endTime > currentTime) {
             nextClassEndTime = endTime;
             classCurrently = classPeriod.name;
+            HighlightElement = document.getElementById(classPeriod.id)
+            HighlightElement.classList.add("highlight_current_class");
             break;
         }
     }
 
     if (!nextClassEndTime) {
         document.getElementById('schedule-clock').innerText = "No more classes today.";
-        document.getElementById('current-class').innerText = '';
+        document.getElementById('current-class').innerText = 'No more classes to display';
         return;
     }
     let timeDifference = nextClassEndTime - currentTime;
@@ -152,7 +157,7 @@ function UpdateCountdowns() {
     }
 
     document.getElementById('schedule-clock').innerText = countdownText;
-    document.getElementById('current-class').innerText = `Currently in: ${classCurrently}`;
+    document.getElementById('current-class').innerText = `Currently in ${classCurrently}`;
 
     // Lunch Schedule 
     let nextLunchEndTime = null;
@@ -162,13 +167,15 @@ function UpdateCountdowns() {
         if (endTime > currentTime) {
             nextLunchEndTime = endTime;
             lunchCurrently = lunchPeriod.name;
+            HighlightElement = document.getElementById(lunchPeriod.name + '-lunch')
+            HighlightElement.classList.add("highlight_current_class");
             break;
         }
     }
 
     if (!nextLunchEndTime) {
         document.getElementById('lunch-clock').innerText = "All lunches have been finished!";
-        document.getElementById('current-lunch').innerText = '';
+        document.getElementById('current-lunch').innerText = 'No more Lunches Left to display';
         return;
     }
 
@@ -183,7 +190,7 @@ function UpdateCountdowns() {
         LcountdownText = `${Lseconds}s`;
     }
     document.getElementById('lunch-clock').innerText = LcountdownText;
-    document.getElementById('current-lunch').innerText = `Current lunch: ${lunchCurrently}`;
+    document.getElementById('current-lunch').innerText = `Currently in ${lunchCurrently} lunch`;
 }
 
 setInterval(UpdateCountdowns, 1000);
