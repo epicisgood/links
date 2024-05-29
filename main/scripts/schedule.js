@@ -1,6 +1,8 @@
 const schedules = {
     regular: {
         title: "Regular",
+        StartTime: new Date().setHours(7, 35, 0, 0),
+        LunchStartTime: new Date().setHours(11, 0, 0 ,0),
         classes: [
             { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(8, 55, 0, 0), interval: "7:35 - 8:55" },
             { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(10, 20, 0, 0), interval: "9:00 - 10:20" },
@@ -17,6 +19,8 @@ const schedules = {
     },
     earlyDismissal: {
         title: "Early Dismisal",
+        StartTime: new Date().setHours(7 , 35, 0, 0),
+        LunchStartTime: new Date().setHours(0, 0, 0 ,0),
         classes: [
             { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(8, 25, 0, 0), interval: "7:35 - 8:25" },
             { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(9, 20, 0, 0), interval: "8:30 - 9:20" },
@@ -27,6 +31,8 @@ const schedules = {
     },
     twoHourDelay: {
         title: "2 Hour Delay",
+        StartTime: new Date().setHours(9 , 35, 0, 0),
+        LunchStartTime: new Date().setHours(11, 30, 0 ,0),
         classes: [
             { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(10, 30, 0, 0), interval: "9:35 - 10:30" },
             { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(11, 30, 0, 0), interval: "10:35 - 11:30" },
@@ -42,6 +48,8 @@ const schedules = {
     },
     prepRalley: {
         title: "Prep Ralley",
+        StartTime: new Date().setHours(7 , 35, 0, 0),
+        LunchStartTime: new Date().setHours(11, 34, 0 ,0),
         classes: [
             { id: '1st-class', name: "A1/B5", endTime: new Date().setHours(8, 40, 0, 0), interval: "7:35 - 8:40" },
             { id: '2nd-class', name: "A2/B6", endTime: new Date().setHours(9, 50, 0, 0), interval: "8:45 - 9:50" },
@@ -78,6 +86,14 @@ const fourth_lunch = document.getElementById('4th-lunch');
 
 
 
+
+scheduleSwitch.addEventListener('change', () => {
+    const selectedValue = scheduleSwitch.value;
+    currentschedule = schedules[selectedValue];
+    updateScheduleDisplay();
+    UpdateCountdowns();
+});
+
 function updateScheduleDisplay() {
     title.innerHTML = currentschedule.title + ' Schedule';
     lunch_title.innerHTML = currentschedule.title + ' Lunch Schedule';
@@ -97,8 +113,6 @@ function updateScheduleDisplay() {
         second_lunch.innerHTML = '2nd: <b> N/A </b>';
         third_lunch.innerHTML = '3rd: <b> N/A </b>';
         fourth_lunch.innerHTML = '4th: <b> N/A </b>';
-        document.getElementById('lunch-clock').innerText = "No lunch for today";
-        document.getElementById('current-lunch').innerText = 'No lunches to display';
     } else {
         first_lunch.innerHTML = currentschedule.lunches[0].name + ": " + '<b>' + currentschedule.lunches[0].interval + '</b>';
         second_lunch.innerHTML = currentschedule.lunches[1].name + ": " + '<b>' + currentschedule.lunches[1].interval + '</b>';
@@ -107,12 +121,6 @@ function updateScheduleDisplay() {
     }
 }
 
-scheduleSwitch.addEventListener('change', () => {
-    const selectedValue = scheduleSwitch.value;
-    currentschedule = schedules[selectedValue];
-    updateScheduleDisplay();
-    UpdateCountdowns();
-});
 
 
 function UpdateCountdowns() {
@@ -121,6 +129,32 @@ function UpdateCountdowns() {
     });
     // Class Schedule
     const currentTime = new Date().getTime();
+
+    if (currentTime < currentschedule.StartTime){
+        let startdiff = currentschedule.StartTime - currentTime;
+
+        const shours = Math.floor((startdiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const Sminutes = Math.floor((startdiff % (1000 * 60 * 60)) / (1000 * 60));
+        const Sseconds = Math.floor((startdiff % (1000 * 60)) / 1000);
+    
+        let starttimetext = `${Sseconds}s`;
+
+        if (shours > 0) {
+            starttimetext = `${shours}h ${Sminutes}m ${Sseconds}s`;
+        }
+       if (Sminutes > 0){
+        starttimetext = `${Sminutes}m ${Sseconds}s`
+       }
+
+        document.getElementById('schedule-clock').innerText = `${starttimetext}`;
+        document.getElementById('current-class').innerText = 'Classes for today will start in';
+        return;
+    }
+    
+
+
+
+    
 
     let nextClassEndTime = null;
     let classCurrently = null;
@@ -148,13 +182,13 @@ function UpdateCountdowns() {
 
     let countdownText = `${seconds}s`;
 
-    if (minutes > 0) {
-        countdownText = `${minutes}m ${seconds}s`;
-    }
-
     if (hours > 0) {
         countdownText = `${hours}h ${minutes}m ${seconds}s`;
     }
+   if (minutes > 0){
+    countdownText = `${minutes}m ${seconds}s`
+   }
+
 
     document.getElementById('schedule-clock').innerText = countdownText;
     document.getElementById('current-class').innerText = `Currently in ${classCurrently}`;
@@ -173,22 +207,52 @@ function UpdateCountdowns() {
         }
     }
 
+    if (currentschedule.lunches.length === 0){
+        document.getElementById('lunch-clock').innerText = "No lunch for today";
+        document.getElementById('current-lunch').innerText = 'No lunches to display';
+        return;
+    }
+
     if (!nextLunchEndTime) {
         document.getElementById('lunch-clock').innerText = "All lunches have been finished!";
         document.getElementById('current-lunch').innerText = 'No more Lunches Left to display';
         return;
     }
 
-    let lunchDiff = nextLunchEndTime - currentTime;
+    if (currentTime < currentschedule.LunchStartTime){
+        let lunchDiff = currentschedule.LunchStartTime - currentTime;
 
+        const Lhours = Math.floor((lunchDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const Lminutes = Math.floor((lunchDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const Lseconds = Math.floor((lunchDiff % (1000 * 60)) / 1000);
+    
+        let LcountdownText = `${Lseconds}s`
+    
+        if (Lhours > 0) {
+            LcountdownText = `${Lminutes}m ${Lseconds}s`;
+        }
+       if (Lminutes > 0 ){
+        LcountdownText = `${Lhours}h  ${Lminutes}m ${Lseconds}s`
+       }
+        document.getElementById('lunch-clock').innerText = LcountdownText;
+        document.getElementById('current-lunch').innerText = `Lunches will start in...`;
+        return;
+
+    }
+
+    let lunchDiff = nextLunchEndTime - currentTime;
+    const Lhours = Math.floor((lunchDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const Lminutes = Math.floor((lunchDiff % (1000 * 60 * 60)) / (1000 * 60));
     const Lseconds = Math.floor((lunchDiff % (1000 * 60)) / 1000);
 
-    let LcountdownText = `${Lminutes}m ${Lseconds}s`;
+    let LcountdownText = `${Lseconds}s`
 
-    if (Lminutes <= 0){
-        LcountdownText = `${Lseconds}s`;
+    if (Lhours > 0) {
+        LcountdownText = `${Lminutes}m ${Lseconds}s`;
     }
+   if (Lminutes > 0 ){
+    LcountdownText = `${Lhours}h  ${Lminutes}m ${Lseconds}s`
+   }
     document.getElementById('lunch-clock').innerText = LcountdownText;
     document.getElementById('current-lunch').innerText = `Currently in ${lunchCurrently} lunch`;
 }
