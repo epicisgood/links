@@ -1,0 +1,44 @@
+{
+    "regular": {
+        "title": "Regular",
+        "StartTime": 1688380500000,
+        "classes": [
+            { "id": "1st-class", "name": "A1/B5", "endTime": 1688385300000, "interval": "7:35 - 8:55" },
+            { "id": "2nd-class", "name": "A2/B6", "endTime": 1688390400000, "interval": "9:00 - 10:20" },
+            { "id": "3rd-class", "name": "Charger Time", "endTime": 1688392500000, "interval": "10:20 - 10:55" },
+            { "id": "4th-class", "name": "A3/B7", "endTime": 1688400900000, "interval": "11:00 - 12:55" },
+            { "id": "5th-class", "name": "A4/B8", "endTime": 1688406000000, "interval": "13:00 - 14:20" }
+        ]
+    },
+    "earlyDismissal": {
+        "title": "Early Dismissal",
+        "StartTime": 1688380500000,
+        "classes": [
+            { "id": "1st-class", "name": "A1/B5", "endTime": 1688383500000, "interval": "7:35 - 8:25" },
+            { "id": "2nd-class", "name": "A2/B6", "endTime": 1688386800000, "interval": "8:30 - 9:20" },
+            { "id": "3rd-class", "name": "A3/B7", "endTime": 1688390100000, "interval": "9:25 - 10:15" },
+            { "id": "4th-class", "name": "A4/B8", "endTime": 1688393700000, "interval": "10:20 - 11:15" }
+        ]
+    },
+    "twoHourDelay": {
+        "title": "2 Hour Delay",
+        "StartTime": 1688392500000,
+        "classes": [
+            { "id": "1st-class", "name": "A1/B5", "endTime": 1688395800000, "interval": "9:35 - 10:30" },
+            { "id": "2nd-class", "name": "A2/B6", "endTime": 1688399400000, "interval": "10:35 - 11:30" },
+            { "id": "3rd-class", "name": "A3/B7", "endTime": 1688406300000, "interval": "11:35 - 13:25" },
+            { "id": "4th-class", "name": "A4/B8", "endTime": 1688410800000, "interval": "13:30 - 14:20" }
+        ]
+    },
+    "pepRally": {
+        "title": "Pep Rally",
+        "StartTime": 1688380500000,
+        "classes": [
+            { "id": "1st-class", "name": "A1/B5", "endTime": 1688384100000, "interval": "7:35 - 8:40" },
+            { "id": "2nd-class", "name": "A2/B6", "endTime": 1688388600000, "interval": "8:45 - 9:50" },
+            { "id": "3rd-class", "name": "A3/B7", "endTime": 1688392860000, "interval": "9:55 - 11:01" },
+            { "id": "4th-class", "name": "A4/B8", "endTime": 1688400480000, "interval": "11:06 - 13:08" },
+            { "id": "5th-class", "name": "Pep Rally", "endTime": 1688406000000, "interval": "13:10 - 14:20" }
+        ]
+    }
+}

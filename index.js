@@ -9,17 +9,18 @@ app.use(express.json());
 
 
 
-// Determine the directory name
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const mainPath = path.join(__dirname, "main");
+const mainPath = path.join(__dirname, "src");
 
 app.use(express.static(mainPath));
 
 const routes = [
   { path: "/", file: "index.html" },
   { path: "/schedule", file: "schedule.html" },
+  { path: "/lunches", file: "lunch.html" },
+  { path: '/about', file: "about.html"},
 ];
 
 routes.forEach((route) => {

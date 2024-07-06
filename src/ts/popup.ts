@@ -16,7 +16,7 @@ if (!inFrame && !navigator.userAgent.includes('Firefox')) {
     const link = doc.createElement('link')
 
     const name = localStorage.getItem('name') || 'Dashboard'
-    const icon = localStorage.getItem('icon') || 'media/favicon.png'
+    const icon = localStorage.getItem('icon') || "img/favicon.png";
 
     doc.title = name
     link.rel = 'icon'
@@ -24,7 +24,7 @@ if (!inFrame && !navigator.userAgent.includes('Firefox')) {
 
     iframe.src = location.href
     style.position = 'fixed'
-    style.top = style.bottom = style.left = style.right = 0
+    style.top = style.bottom = style.left = style.right = "0"
     style.border = style.outline = 'none'
     style.width = style.height = '100%'
 

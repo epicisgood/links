@@ -1,0 +1,33 @@
+:root {
+    --background-color: hsl(200, 70%, 50%);
+    --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+body {
+    background-color: var(--background-color)
+}
+
+
+.navbar{
+    animation: title-border 4s infinite alternate;
+}
+
+
+@keyframes title-border {
+    from {
+        border-color: rgb(0, 0, 0);
+    }
+
+    to {
+        border-color: hsl(0, 0%, 85%);
+    }
+}
+
+
+.header {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,97 @@
+:root {
+    --navbar-font: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hyperlinks {
+    color: rgb(234, 0, 255);
+}
+
+.hyperlinks:active {
+    color: blueviolet;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    gap: 1vw;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 154, 201);
+    width: 99%;
+    border-radius: 20px;
+    height: 5rem;
+    font-size: 1.1rem;
+}
+
+.navbar:hover {
+    background-color: hsla(0, 0%, 0%, 0.85);
+}
+
+.navbar:active {
+    background-color: hsla(0, 0%, 6%, 0.85);
+    ;
+}
+
+/* every children inside of the navbar */
+
+.navbar>* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsla(0, 0%, 100%, 0.8);
+    background-color: rgba(0, 36, 197, 0.8);
+    border-radius: 15px;
+    gap: 3vw;
+    font-family: var(--navbar-font);
+    font-weight: 600;
+    width: 15vw;
+    max-width: 140px;
+    height: 6vh;
+    min-height: 50px;
+    min-width: 80px;
+}
+
+.navbar-about:hover,
+.navbar-schedule:hover,
+.navbar-lunches:hover {
+    transform: translate(2%, -4%);
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: hsla(229, 100%, 35%, 0.8);
+}
+
+.navbar-about:active,
+.navbar-schedule:active,
+.navbar-lunches:active {
+    color: hsl(0, 0%, 80%, 0.8);
+}
+
+.navbar-about {
+    margin-right: 1vw;
+}
+
+.navbar-home-button {
+    position: absolute;
+    left: 15px;
+    max-width: 50px;
+
+}

@@ -1,0 +1,89 @@
+{
+    "regular": {
+        "title": "Regular",
+        "StartTime": 1720322100000,
+        "LunchStartTime": 1720335600000,
+        "lunches": [
+            {
+                "name": "1st",
+                "endTime": 1720337100000,
+                "interval": "11:00 - 11:25"
+            },
+            {
+                "name": "2nd",
+                "endTime": 1720338900000,
+                "interval": "11:30 - 11:55"
+            },
+            {
+                "name": "3rd",
+                "endTime": 1720340700000,
+                "interval": "12:00 - 12:25"
+            },
+            {
+                "name": "4th",
+                "endTime": 1720342500000,
+                "interval": "12:30 - 12:55"
+            }
+        ]
+    },
+    "earlyDismissal": {
+        "title": "Early Dismisal",
+        "StartTime": 1720322100000,
+        "LunchStartTime": 1720299600000,
+        "lunches": []
+    },
+    "twoHourDelay": {
+        "title": "2 Hour Delay",
+        "StartTime": 1720329300000,
+        "LunchStartTime": 1720337400000,
+        "lunches": [
+            {
+                "name": "1st",
+                "endTime": 1720338900000,
+                "interval": "11:30 - 11:55"
+            },
+            {
+                "name": "2nd",
+                "endTime": 1720340700000,
+                "interval": "12:00 - 12:25"
+            },
+            {
+                "name": "3rd",
+                "endTime": 1720342500000,
+                "interval": "12:30 - 12:55"
+            },
+            {
+                "name": "4th",
+                "endTime": 1720344300000,
+                "interval": "13:00 - 13:25"
+            }
+        ]
+    },
+    "prepRalley": {
+        "title": "Prep Ralley",
+        "StartTime": 1720322100000,
+        "LunchStartTime": 1720337640000,
+        "lunches": [
+            {
+                "name": "1st",
+                "endTime": 1720337640000,
+                "interval": "11:06 - 11:34"
+            },
+            {
+                "name": "2nd",
+                "endTime": 1720339680000,
+                "interval": "11:38 - 12:08"
+            },
+            {
+                "name": "3rd",
+                "endTime": 1720341480000,
+                "interval": "12:10 - 12:38"
+            },
+            {
+                "name": "4th",
+                "endTime": 1720343280000,
+                "interval": "12:42 - 13:08"
+            }
+        ]
+    }
+}
