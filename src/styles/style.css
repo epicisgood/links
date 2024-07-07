@@ -21,10 +21,14 @@ body {
 @keyframes title-border {
     from {
         border-color: rgb(0, 38, 49);
+        box-shadow: 0 0 30px rgb(0, 38, 49);
+
     }
 
     to {
         border-color: rgb(0, 195, 255);
+        box-shadow: 0 0 30px rgb(0, 195, 255);
+
     }
 }
 
@@ -104,7 +108,7 @@ body {
     height: calc(100vh + 20rem);
     width: calc(100vw + 20rem);
     z-index: 2;
-    animation: spin 5s infinite alternate;
+    animation: spin 5s infinite;
 }
 b{
     color: hsl(120, 100%, 50%, 0.8);

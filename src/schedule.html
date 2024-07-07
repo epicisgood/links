@@ -4,19 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" id="tab-favicon" href="img/favicon.png"/>
+    <link rel="shortcut icon" id="tab-favicon" href="img/favicon.png" />
     <link rel="stylesheet" href="styles/schedule.css">
     <link rel="stylesheet" href="styles/navbar.css">
 
     <title>Class Schedule</title>
-    
+
 </head>
 
 <body>
 
-    
+
     <nav class="navbar">
-        <div class="navbar-home-button"><a href="/" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a></div>
+        <div class="navbar-home-button"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-house">
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                    <path
+                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                </svg></a></div>
         <div class="navbar-schedule"><a class="a" href="/schedule">Schedule</a></div>
         <div class="navbar-lunches"><a class="a" href="/lunches">Lunches</a></div>
         <div class="navbar-about"><a class="a" href="/about">About</a></div>
@@ -25,12 +31,38 @@
 
     <h1 class="header">Class Schedules</h1>
 
+    <select id="dropdown" autofocus>
+        <option value="Regular">Regular</option>
+        <option value="earlyDismissal">Early Dismissal</option>
+        <option value="twoHourDelay">2 Hour delay</option>
+        <option value="pepRally">Pep Ralley</option>
+    </select>
 
-    <div class="schedule-container">
-        div.
+
+
+    <div class="grid-columm">
+
+        <div class="schedule-container">
+
+            <h2 id="sub-header" class="sub-header"></h2>
+
+            <div class="classes" id="1st"></div>
+            <div class="classes" id="2nd"></div>
+            <div class="classes" id="3rd"></div>
+            <div class="classes" id="4th"></div>
+            <div class="classes" id="5th"></div>
+        </div>
+
+
+        <div class="clock-container">
+            <div class="clock-date">Tuesday, June 30, 2024</div>
+            <div class="clock-timer" id="clock">1h 1m 1s</div>
+
+        </div>
+
+
     </div>
-
-    <script src="js\schedule.js" type="module"></script>
+    <script src="js/schedule.js" type="module"></script>
 
 </body>
 
