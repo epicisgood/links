@@ -59,7 +59,7 @@ body {
     font-family: var(--system-font);
 }
 
-.schedule-container:hover{
+.schedule-container:hover {
     background-color: hsl(0, 0%, 95%, 0.5);
     box-shadow: 0 0 20px hsl(0, 0%, 100%, 0.5);
 }
@@ -70,7 +70,7 @@ body {
     font-weight: 600;
 }
 
-.int-values{
+.int-values {
     font-size: 1.5rem;
     font-weight: 700;
     color: rgb(0, 0, 150);
@@ -96,7 +96,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px hsla(0, 0%, 80%, 0.5);
 
-    
+
 }
 
 .clock-container:hover {
@@ -107,21 +107,32 @@ body {
 
 
 
-.clock-date{
+.clock-date {
     font-size: 1.7rem;
     margin-bottom: 1rem;
     line-height: 1.5;
     font-weight: bold;
 }
 
-.clock-timer{
+.clock-timer {
     font-size: 1.5rem;
+    background-color: var(--background-color);
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(69, 249, 255, 0.7);
+    padding: 1.2rem;
 }
 
-.spacing{
+.spacing {
     margin-top: 3vh;
 }
 
-.highlight{
-    background-color: red;
+
+
+.highlight {
+    background-color: rgba(0, 255, 242, 0.4);
+    border-radius: 25px;
+    box-shadow: 0 0 25px rgba(0, 255, 242, 0.7);;
+    padding: 3px;
+    
 }

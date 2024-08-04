@@ -26,7 +26,6 @@ const ClockScheduleTimer = document.getElementById("clock-schedule");
 const ClassEnd = document.getElementById("class-end");
 const Classes = {
     Regular: {
-        // testing: "10:00 PM",
         // BreakfestBell: "7:30 AM",
         FirstClassStart: "7:35 AM",
         FirstClassEnd: "8:55 AM",
@@ -40,7 +39,6 @@ const Classes = {
         FourthClassEnd: "2:20 PM",
     },
     earlyDismissal: {
-        // testing: "10:00 PM",
         // BreakfestBell: "7:30 AM",
         FirstClassStart: "7:35 AM",
         FirstClassEnd: "8:25 AM",
@@ -52,7 +50,6 @@ const Classes = {
         FourthClassEnd: "11:15 AM",
     },
     twoHourDelay: {
-        // testing: "10:00 PM",
         // BreakfestBell: "9:30 AM",
         FirstClassStart: "9:35 AM",
         FirstClassEnd: "10:30 AM",
@@ -64,7 +61,6 @@ const Classes = {
         FourthClassEnd: "2:20 PM",
     },
     pepRally: {
-        // testing: "10:00 PM",
         // BreakfestBell: "7:30 AM",
         FirstClassStart: "7:35 AM",
         FirstClassEnd: "8:40 AM",
@@ -180,7 +176,6 @@ function NextClassClock() {
             currentSchedule.ThirdClassStart, currentSchedule.ThirdClassEnd,
             currentSchedule.FourthClassStart, currentSchedule.FourthClassEnd,
             currentSchedule.FifthClassStart, currentSchedule.FifthClassEnd,
-            // currentSchedule.testing,
         ];
         for (let i = 0; i < scheduleTimes.length; i++) {
             if (scheduleTimes[i] != undefined) {
@@ -189,26 +184,32 @@ function NextClassClock() {
                 if (!TimeUntil.includes("Time has already passed")) {
                     // if (scheduleTimes[i] === Classes[variable].testing) {
                     //     const ParantElement = FirstSpanElement.parentNode as HTMLDivElement
+                    //     document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                     //     ParantElement.classList.add("highlight")
                     // }
                     if (scheduleTimes[i] === Classes[variable].FirstClassEnd) {
                         const ParantElement = FirstSpanElement.parentNode;
+                        document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                         ParantElement.classList.add("highlight");
                     }
                     if (scheduleTimes[i] === Classes[variable].SecondClassEnd) {
                         const ParantElement = secondSpanElement.parentNode;
+                        document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                         ParantElement.classList.add("highlight");
                     }
                     if (scheduleTimes[i] === Classes[variable].ThirdClassEnd) {
                         const ParantElement = thirdSpanElement.parentNode;
+                        document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                         ParantElement.classList.add("highlight");
                     }
                     if (scheduleTimes[i] === Classes[variable].FourthClassEnd) {
                         const ParantElement = fourthSpanElement.parentNode;
+                        document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                         ParantElement.classList.add("highlight");
                     }
                     if (scheduleTimes[i] === Classes[variable].FifthClassEnd) {
                         const ParantElement = fifthSpanElement.parentNode;
+                        document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                         ParantElement.classList.add("highlight");
                     }
                     ClassEnd.textContent = "Next Class will be in";
@@ -217,6 +218,7 @@ function NextClassClock() {
                 }
             }
             if (i == scheduleTimes.length - 1) {
+                document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                 ClassEnd.textContent = "All Classes Have ended!";
                 ClockScheduleTimer.textContent = "🎉🎉";
             }

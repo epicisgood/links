@@ -21,6 +21,7 @@ const ClassEnd = document.getElementById("class-end") as HTMLDivElement
 
 
 
+
 interface Schedule {
     title: string;
     classes: {
@@ -37,7 +38,6 @@ interface ClassesData {
 
 interface ClassSchedule {
     [key: string]: {
-        // testing: string,
         FirstClassStart: string;
         FirstClassEnd: string;
         SecondClassStart: string;
@@ -55,7 +55,6 @@ interface ClassSchedule {
 
 const Classes: ClassSchedule = {
     Regular: {
-        // testing: "10:00 PM",
         // BreakfestBell: "7:30 AM",
         FirstClassStart: "7:35 AM",
         FirstClassEnd: "8:55 AM",
@@ -74,7 +73,6 @@ const Classes: ClassSchedule = {
 
     },
     earlyDismissal: {
-        // testing: "10:00 PM",
 
         // BreakfestBell: "7:30 AM",
         FirstClassStart: "7:35 AM",
@@ -91,7 +89,6 @@ const Classes: ClassSchedule = {
 
     },
     twoHourDelay: {
-        // testing: "10:00 PM",
 
         // BreakfestBell: "9:30 AM",
         FirstClassStart: "9:35 AM",
@@ -108,7 +105,6 @@ const Classes: ClassSchedule = {
 
     },
     pepRally: {
-        // testing: "10:00 PM",
 
         // BreakfestBell: "7:30 AM",
         FirstClassStart: "7:35 AM",
@@ -133,8 +129,8 @@ const Classes: ClassSchedule = {
 function dropdownChange(event: Event): void {
     const selectElement: HTMLSelectElement = event.target as HTMLSelectElement;
     const selectedValue: string = selectElement.value;
-
     localStorage.setItem("Current-Schedule", selectedValue);
+
     currentSchedule(localStorage.getItem("Current-Schedule") as string);
 
 
@@ -197,6 +193,7 @@ function DisplayElementsSchedule(schedule: Schedule) {
     thirdElement.textContent = (thirdClass?.name ?? '');
     thirdSpanElement.textContent = (thirdClass?.interval ?? '');
 
+
     const fourthClass = schedule.classes.find(schedule => schedule.id === '4th');
     fourthElement.textContent = (fourthClass?.name ?? '');
     fourthSpanElement.textContent = (fourthClass?.interval ?? '');
@@ -258,11 +255,11 @@ async function NextClassClock(): Promise<void> {
         currentSchedule.ThirdClassStart, currentSchedule.ThirdClassEnd,
         currentSchedule.FourthClassStart, currentSchedule.FourthClassEnd,
         currentSchedule.FifthClassStart, currentSchedule.FifthClassEnd,
-        // currentSchedule.testing,
     ];
 
 
     for (let i = 0; i < scheduleTimes.length; i++) {
+
         if (scheduleTimes[i] != undefined) {
 
 
@@ -273,27 +270,34 @@ async function NextClassClock(): Promise<void> {
             if (!TimeUntil.includes("Time has already passed")) {
                 // if (scheduleTimes[i] === Classes[variable].testing) {
                 //     const ParantElement = FirstSpanElement.parentNode as HTMLDivElement
+                //     document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                 //     ParantElement.classList.add("highlight")
+
                 // }
 
                 if (scheduleTimes[i] === Classes[variable].FirstClassEnd) {
                     const ParantElement = FirstSpanElement.parentNode as HTMLDivElement
+                    document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                     ParantElement.classList.add("highlight")
                 }
                 if (scheduleTimes[i] === Classes[variable].SecondClassEnd) {
                     const ParantElement = secondSpanElement.parentNode as HTMLDivElement
+                    document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                     ParantElement.classList.add("highlight")
                 }
                 if (scheduleTimes[i] === Classes[variable].ThirdClassEnd) {
                     const ParantElement = thirdSpanElement.parentNode as HTMLDivElement
+                    document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                     ParantElement.classList.add("highlight")
                 }
                 if (scheduleTimes[i] === Classes[variable].FourthClassEnd) {
                     const ParantElement = fourthSpanElement.parentNode as HTMLDivElement
+                    document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                     ParantElement.classList.add("highlight")
                 }
                 if (scheduleTimes[i] === Classes[variable].FifthClassEnd) {
                     const ParantElement = fifthSpanElement.parentNode as HTMLDivElement
+                    document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
                     ParantElement.classList.add("highlight")
                 }
                 ClassEnd.textContent = "Next Class will be in"
@@ -303,6 +307,7 @@ async function NextClassClock(): Promise<void> {
         }
 
         if (i == scheduleTimes.length - 1) {
+            document.querySelectorAll(".highlight").forEach(HighlightedElement => HighlightedElement.classList.remove("highlight"));
             ClassEnd.textContent = "All Classes Have ended!"
             ClockScheduleTimer.textContent = "🎉🎉"
         }
@@ -354,10 +359,10 @@ setInterval(() => {
 
     NextClassClock()
 }, 1000);
+    
+currentSchedule(localStorage.getItem("Current-Schedule") as string);
 
 
-
-currentSchedule(localStorage.getItem("Current-Schedule"));
 
 document.getElementById('dropdown')?.addEventListener('change', dropdownChange);
 
